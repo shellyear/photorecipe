@@ -9,13 +9,14 @@ const Introduction = () => {
             Get Recipes from Food Photos{" "}
             <span className="relative whitespace-nowrap">
               <span className="absolute bg-neutral-content -left-2 -top-1 -bottom-1 -right-2 md:-left-3 md:-top-0 md:-bottom-0 md:-right-3 -rotate-1"></span>
-              <span className="relative text-neutral">Instantly</span>
+              <span className="relative text-mandy">Instantly</span>
             </span>
           </h1>
           <p className="mt-4 px-3 text-lg">
             Snap a photo of ingredients or a meal, and get instant recipe
             recommendations or dish identification with our AI-powered app.
           </p>
+          <button className="btn bg-mandy btn-wide text-white font-bold mt-4">Get started</button>
         </div>
         <div className="md:w-1/2 w-full flex justify-center mt-6 md:mt-0">
           <Image

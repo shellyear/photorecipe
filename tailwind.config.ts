@@ -11,6 +11,8 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        mandy: "var(--mandy)",
+        mandydark: "var(--mandy-dark)"
       },
     },
   },

@@ -1,5 +1,6 @@
 import Logo from "@/components/Logo";
 import PageContainer from "@/components/PageContainer";
+import HowItWorks from "@/components/sections/HowItWorks";
 import Introduction from "@/components/sections/Introduction";
 import Link from "next/link";
 
@@ -16,6 +17,7 @@ export default function Home() {
       </header>
       <main>
         <Introduction />
+        <HowItWorks />
       </main>
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
       </footer>
