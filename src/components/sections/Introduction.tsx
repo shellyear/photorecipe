@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const Introduction = () => {
   return (
-    <section className="container mx-auto px-4 py-8">
+    <section className="mx-auto py-8">
       <div className="flex flex-col md:flex-row items-center">
         <div className="md:w-1/2 w-full md:pr-8">
           <h1 className="text-5xl font-bold leading-normal">

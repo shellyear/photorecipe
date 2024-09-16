@@ -6,7 +6,8 @@
   --background: #ffffff;
   --foreground: #171717;
   --mandy: #EC5564;
-  --mandy-dark: #ec5564d3; 
+  --mandy-light: #ffb9c0;
+  --mandy-dark: #df4857; 
 }
 
 @media (prefers-color-scheme: dark) {

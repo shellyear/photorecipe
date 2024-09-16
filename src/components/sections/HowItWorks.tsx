@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const HowItWorks = () => {
   return (
-    <section className="container mx-auto px-4 py-8">
+    <section className="mx-auto py-8">
       <div className="container mx-auto text-center">
         <h2 className="text-4xl font-bold mb-8">It's easy as 1, 2, 3</h2>
 
