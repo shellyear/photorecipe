@@ -1,4 +1,4 @@
-const PageContainer = ({ children }: { children: React.ReactNode }) => {
+const Container = ({ children }: { children: React.ReactNode }) => {
     return (
       <div className="mx-auto max-w-6xl p-6 pb-0">
         {children}
@@ -6,4 +6,4 @@ const PageContainer = ({ children }: { children: React.ReactNode }) => {
     );
   };
   
-export default PageContainer;
+export default Container;

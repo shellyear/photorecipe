@@ -1,8 +1,10 @@
 import Image from "next/image";
+import Container from "../Container";
 
 const HowItWorks = () => {
   return (
     <section className="py-8 text-center">
+      <Container>
         <h2 className="text-4xl font-bold mb-8">It's easy as 1, 2, 3</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Step 1: Login or Signup */}
@@ -41,6 +43,7 @@ const HowItWorks = () => {
             </p>
           </div>
         </div>
+      </Container>
     </section>
   );
 };
