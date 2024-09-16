@@ -2,10 +2,8 @@ import Image from "next/image";
 
 const HowItWorks = () => {
   return (
-    <section className="mx-auto py-8">
-      <div className="container mx-auto text-center">
+    <section className="py-8 text-center">
         <h2 className="text-4xl font-bold mb-8">It's easy as 1, 2, 3</h2>
-
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Step 1: Login or Signup */}
           <div className="bg-white p-6 rounded-lg shadow-lg">
@@ -43,7 +41,6 @@ const HowItWorks = () => {
             </p>
           </div>
         </div>
-      </div>
     </section>
   );
 };

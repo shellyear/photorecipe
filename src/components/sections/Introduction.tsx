@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const Introduction = () => {
   return (
-    <section className="mx-auto py-8">
+    <section className="py-8">
       <div className="flex flex-col md:flex-row items-center">
         <div className="md:w-1/2 w-full md:pr-8">
           <h1 className="text-5xl font-bold leading-normal">
@@ -16,7 +16,7 @@ const Introduction = () => {
             Snap a photo of ingredients or a meal, and get instant recipe
             recommendations or dish identification with our AI-powered app.
           </p>
-          <button className="btn bg-mandy btn-wide text-white font-bold mt-4">Get started</button>
+          <button className="btn bg-mandy btn-wide text-white font-bold mt-4 hover:bg-mandydark">Get started</button>
         </div>
         <div className="md:w-1/2 w-full flex justify-center mt-6 md:mt-0">
           <Image
