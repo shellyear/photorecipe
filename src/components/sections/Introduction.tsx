@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Container from "../Container";
+import ChefHat from "../icons/chefHat";
 
 const Introduction = () => {
   return (
@@ -18,7 +19,10 @@ const Introduction = () => {
               Snap a photo of ingredients or a meal, and get instant recipe
               recommendations or dish identification with our AI-powered app.
             </p>
-            <button className="btn bg-mandy btn-wide text-white font-bold mt-4 hover:bg-mandydark">Get started</button>
+            <button className="btn bg-mandy btn-wide text-white font-bold mt-4 hover:bg-mandydark">
+              <ChefHat w={22} h={22} />
+              Get started
+            </button>
           </div>
           <div className="md:w-1/2 w-full flex justify-center mt-6 md:mt-0">
             <Image
