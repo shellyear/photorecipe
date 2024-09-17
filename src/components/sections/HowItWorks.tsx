@@ -22,7 +22,7 @@ const HowItWorks = () => {
           {/* Step 2: Take a Photo of Your Meal */}
           <div className="bg-white p-6 rounded-lg shadow-lg">
             <div className="flex justify-center mb-1">
-              <Image src="/camera-icon.svg" width={60} height={60} alt="signup" />
+              <Image src="/photo-upload.svg" width={60} height={60} alt="signup" />
             </div>
             <h3 className="text-2xl font-semibold mb-4">Upload a Photo</h3>
             <p className="text-gray-600">
