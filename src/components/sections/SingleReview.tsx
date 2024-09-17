@@ -10,7 +10,7 @@ interface ISingleReview {
 
 const SingleReview = ({ feedback, imgPath, name, occupation }: ISingleReview) => {
   return (
-    <section className="bg-mandylight py-8">
+    <section className="bg-mandylight py-10">
       <div className="space-y-4 max-w-md mx-auto">
         <Image
           src="/double-quotes.svg"
