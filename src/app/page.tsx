@@ -5,6 +5,8 @@ import Introduction from "@/components/sections/Introduction";
 import Link from "next/link";
 import SingleReview from "@/components/sections/SingleReview";
 import Pricing from "@/components/sections/Pricing";
+import Support from "@/components/sections/Support";
+import FAQ from "@/components/sections/FAQ";
 
 export default function Home() {
   return (
@@ -25,6 +27,7 @@ export default function Home() {
         <Introduction />
         <HowItWorks />
         <SingleReview
+          className="bg-mandylight"
           feedback="This app instantly gives me recipe ideas just by uploading a photo of
           my ingredients. It’s perfect for busy weeknights when I need quick
           meal inspiration. Highly recommended!"
@@ -33,6 +36,14 @@ export default function Home() {
           occupation="Home chef"
         />
         <Pricing />
+        <SingleReview
+          feedback="This app transformed my kitchen! Snapping photos and getting instant recipes has made cooking fun. The $19.99/year plan is a steal, and saving my favorite dishes makes meal planning effortless!"
+          imgPath="/kurma.jpg"
+          name="Ryo Tanaka"
+          occupation="Food Enthusiast"
+        />
+        <FAQ />
+        <Support />
       </main>
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center"></footer>
     </>

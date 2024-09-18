@@ -2,15 +2,16 @@ import Image from "next/image";
 import React from "react";
 
 interface ISingleReview {
+  className?: string,
   feedback: string,
   imgPath: string,
   name: string,
   occupation: string,
 }
 
-const SingleReview = ({ feedback, imgPath, name, occupation }: ISingleReview) => {
+const SingleReview = ({ className, feedback, imgPath, name, occupation }: ISingleReview) => {
   return (
-    <section className="bg-mandylight py-10">
+    <section className={`${className} py-12`}>
       <div className="space-y-4 max-w-md mx-auto">
         <Image
           src="/double-quotes.svg"
@@ -29,7 +30,7 @@ const SingleReview = ({ feedback, imgPath, name, occupation }: ISingleReview) =>
             width={48}
             height={48}
           />
-          <p>Salta Sutey</p>
+          <p>{name}</p>
           <span className="badge badge-neutral badge-outline">{occupation}</span>
         </div>
       </div>

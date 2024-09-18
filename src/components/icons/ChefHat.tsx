@@ -16,12 +16,12 @@ const ChefHat = ({ w, h, fill }: Icon) => {
       xmlns="http://www.w3.org/2000/svg"
       stroke="#ffffff"
     >
-      <g id="SVGRepo_bgCarrier" stroke-width="0" />
+      <g id="SVGRepo_bgCarrier" strokeWidth="0" />
 
       <g
         id="SVGRepo_tracerCarrier"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
 
       <g id="SVGRepo_iconCarrier">
@@ -33,9 +33,9 @@ const ChefHat = ({ w, h, fill }: Icon) => {
         <path
           d="M5 18H13M19 18H17"
           stroke="#ffffff"
-          stroke-width="1.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />{" "}
       </g>
     </svg>

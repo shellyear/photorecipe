@@ -25,12 +25,12 @@ const premiumFeatures = [
   },
   { text: "Manually type ingredients to find recipes", available: true },
   { text: "Save your favorite recipes for easy access later", available: true },
-  { text: "Get access to all the new upcoming features", available: true },
+  { text: "Get access to all the upcoming features", available: true },
 ];
 
 const Pricing = () => {
   return (
-    <section className="py-16">
+    <section className="py-16 pb-0">
       <div className="container mx-auto px-4">
         <div className="relative flex flex-col lg:flex-row items-center lg:items-stretch gap-8">
           <div className="relative w-full">
@@ -76,7 +76,7 @@ const Pricing = () => {
                   Get PhotoRecipe
                 </button>
                 <p className="flex items-center justify-center gap-2 text-sm text-center text-base-content/80 font-medium relative">
-                  Pay once. Build unlimited projects!
+                Discover and cook with ease!
                 </p>
               </div>
             </div>
@@ -130,22 +130,11 @@ const Pricing = () => {
                   Get PhotoRecipe
                 </button>
                 <p className="flex items-center justify-center gap-2 text-sm text-center text-base-content/80 font-medium relative">
-                  Pay once. Build unlimited projects!
+                Cook like a pro with our Premium Plan!
                 </p>
               </div>
             </div>
           </div>
-        </div>
-        <div className="text-center mt-6 pt-6 border-t border-gray-200">
-          <p className="text-sm text-gray-600">
-            Contact us for support or suggestions on{" "}
-            <a
-              href="mailto:boolfunc@gmail.com"
-              className="text-blue-600 hover:underline"
-            >
-              boolfunc@gmail.com
-            </a>
-          </p>
         </div>
       </div>
     </section>
