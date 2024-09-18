@@ -8,6 +8,7 @@ import Pricing from "@/components/sections/Pricing";
 import Support from "@/components/sections/Support";
 import FAQ from "@/components/sections/FAQ";
 import CallToAction from "@/components/sections/CallToAction";
+import Footer from "@/components/sections/Footer";
 
 export default function Home() {
   return (
@@ -20,7 +21,7 @@ export default function Home() {
               <Link href="/#pricing">Pricing</Link>
               <Link href="/#signup">Signup</Link>
             </div>
-            <button className="btn btn-sm">LOG IN</button>
+            <button className="btn btn-sm bg-mandy hover:bg-mandydark text-white">LOG IN</button>
           </div>
         </Container>
       </header>
@@ -47,7 +48,7 @@ export default function Home() {
         <FAQ />
         <CallToAction />
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center"></footer>
+      <Footer />
     </>
   );
 }
