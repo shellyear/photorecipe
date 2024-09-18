@@ -21,9 +21,18 @@ const faqs = [
       "If the app doesn't recognize the dish correctly, try taking a clearer, well-lit photo, or adjust the angle. If it doesn't help, contact support for assistance.",
   },
   {
+    question: "Is the app available on Google Play or the App Store?",
+    answer: "The app is currently available only on Google Play.",
+  },
+  {
     question: "How can I cancel my subscription?",
     answer:
       "You can cancel your subscription in the 'Profile' section within the 'Settings' block.",
+  },
+  {
+    question: "Can I get a refund?",
+    answer:
+      "Yes! You can request a refund within 7 days of your purchase. Reach out by email.",
   },
 ];
 
@@ -59,7 +68,7 @@ const FAQ = () => {
           {faqs.map((faq, i) => (
             <li key={i} className="collapse collapse-plus">
               <input type="radio" name="my-accordion-3" />
-              <div className="collapse-title text-xl font-medium">
+              <div className="collapse-title text-xl font-bold">
                 {faq.question}
               </div>
               <div className="collapse-content">

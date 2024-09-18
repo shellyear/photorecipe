@@ -7,6 +7,7 @@ import SingleReview from "@/components/sections/SingleReview";
 import Pricing from "@/components/sections/Pricing";
 import Support from "@/components/sections/Support";
 import FAQ from "@/components/sections/FAQ";
+import CallToAction from "@/components/sections/CallToAction";
 
 export default function Home() {
   return (
@@ -42,8 +43,9 @@ export default function Home() {
           name="Ryo Tanaka"
           occupation="Food Enthusiast"
         />
-        <FAQ />
         <Support />
+        <FAQ />
+        <CallToAction />
       </main>
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center"></footer>
     </>
