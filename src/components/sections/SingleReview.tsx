@@ -1,15 +1,22 @@
 import Image from "next/image";
 import React from "react";
+import Rating from "../Rating";
 
 interface ISingleReview {
-  className?: string,
-  feedback: string,
-  imgPath: string,
-  name: string,
-  occupation: string,
+  className?: string;
+  feedback: string;
+  imgPath: string;
+  name: string;
+  occupation: string;
 }
 
-const SingleReview = ({ className, feedback, imgPath, name, occupation }: ISingleReview) => {
+const SingleReview = ({
+  className,
+  feedback,
+  imgPath,
+  name,
+  occupation,
+}: ISingleReview) => {
   return (
     <section className={`${className} py-12`}>
       <div className="space-y-4 max-w-md mx-auto">
@@ -19,9 +26,8 @@ const SingleReview = ({ className, feedback, imgPath, name, occupation }: ISingl
           width={40}
           height={40}
         />
-        <p className="md:text-lg leading-relaxed">
-          {feedback}
-        </p>
+        <Rating />
+        <p className="md:text-lg leading-relaxed">{feedback}</p>
         <div className="flex items-center gap-2">
           <Image
             src={imgPath}
@@ -31,7 +37,9 @@ const SingleReview = ({ className, feedback, imgPath, name, occupation }: ISingl
             height={48}
           />
           <p>{name}</p>
-          <span className="badge badge-neutral badge-outline">{occupation}</span>
+          <span className="badge badge-neutral badge-outline">
+            {occupation}
+          </span>
         </div>
       </div>
     </section>
