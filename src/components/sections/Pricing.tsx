@@ -30,7 +30,7 @@ const premiumFeatures = [
 
 const Pricing = () => {
   return (
-    <section className="py-16 pb-0">
+    <section id="pricing" className="py-16 pb-0">
       <div className="container mx-auto px-4">
         <div className="relative flex flex-col lg:flex-row items-center lg:items-stretch gap-8">
           <div className="relative w-full">

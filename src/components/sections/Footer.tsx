@@ -57,7 +57,7 @@ const Footer = () => {
                 LEGAL
               </div>
               <div className="flex flex-col justify-center items-center md:items-start gap-2 mb-10 text-sm">
-                <a className="link link-hover" href="/terms-of-service">
+                <a className="link link-hover" href="/terms-of-services">
                   Terms of services
                 </a>
                 <a className="link link-hover" href="/privacy-policy">
