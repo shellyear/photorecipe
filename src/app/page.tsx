@@ -4,6 +4,7 @@ import HowItWorks from "@/components/sections/HowItWorks";
 import Introduction from "@/components/sections/Introduction";
 import Link from "next/link";
 import SingleReview from "@/components/sections/SingleReview";
+import Pricing from "@/components/sections/Pricing";
 
 export default function Home() {
   return (
@@ -31,6 +32,7 @@ export default function Home() {
           name="Salta Sutey"
           occupation="Home chef"
         />
+        <Pricing />
       </main>
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center"></footer>
     </>
