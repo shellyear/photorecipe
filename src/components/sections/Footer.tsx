@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 const Footer = () => {
@@ -11,7 +12,7 @@ const Footer = () => {
               className="flex gap-2 justify-center md:justify-start items-center"
               href="/#"
             >
-              <img
+              <Image
                 alt="PhotoRecipe logo"
                 fetchPriority="high"
                 width="24"
