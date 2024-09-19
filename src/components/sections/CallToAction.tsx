@@ -1,5 +1,5 @@
 import Image from "next/image";
-import ChefHat from "../icons/chefHat";
+import ChefHat from "../icons/ChefHat";
 
 const CallToAction = () => {
   return (

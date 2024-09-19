@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Container from "../Container";
-import ChefHat from "../icons/chefHat";
+import ChefHat from "../icons/ChefHat";
 
 const Introduction = () => {
   return (

@@ -1,6 +1,6 @@
 // components/PricingSection.js
 import React from "react";
-import ChefHat from "../icons/chefHat";
+import ChefHat from "../icons/ChefHat";
 import Check from "../icons/Check";
 import Cross from "../icons/Cross";
 
