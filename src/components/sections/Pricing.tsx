@@ -3,6 +3,7 @@ import React from "react";
 import ChefHat from "../icons/ChefHat";
 import Check from "../icons/Check";
 import Cross from "../icons/Cross";
+import Container from "../Container";
 
 const basicFeatures = [
   { text: "Upload a dish photo for an instant recipe", available: true },
@@ -31,7 +32,7 @@ const premiumFeatures = [
 const Pricing = () => {
   return (
     <section id="pricing" className="py-16 pb-0">
-      <div className="container mx-auto px-4">
+      <Container>
         <div className="relative flex flex-col lg:flex-row items-center lg:items-stretch gap-8">
           <div className="relative w-full">
             <div className="relative flex flex-col gap-5 lg:gap-8 z-10 bg-base-100 p-8 rounded-lg shadow-lg">
@@ -76,7 +77,7 @@ const Pricing = () => {
                   Get PhotoRecipe
                 </button>
                 <p className="flex items-center justify-center gap-2 text-sm text-center text-base-content/80 font-medium relative">
-                Discover and cook with ease!
+                  Discover and cook with ease!
                 </p>
               </div>
             </div>
@@ -130,13 +131,13 @@ const Pricing = () => {
                   Get PhotoRecipe
                 </button>
                 <p className="flex items-center justify-center gap-2 text-sm text-center text-base-content/80 font-medium relative">
-                Cook like a pro with our Premium Plan!
+                  Cook like a pro with our Premium Plan!
                 </p>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 };
