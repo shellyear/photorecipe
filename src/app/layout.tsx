@@ -20,17 +20,17 @@ export const metadata: Metadata = {
   keywords:
     "recipe app, food recognition, AI recipe finder, ingredient recognition, food photo app, cooking app, recipe suggestions",
   openGraph: {
-    title: "PhotoRecipe - Discover Recipes from Your Food Photos",
+    title: "PhotoRecipe - Recognize Dishes & Ingredients, Get Recipes Instantly",
     description:
       "Take a photo of your dish or ingredients, and let PhotoRecipe find the perfect recipe for you. Get instant recipe recommendations and start cooking with ease.",
-    url: "https://www.photorecipe.com",
+    url: "https://www.photorecipe.one",
     type: "website",
     images: [
       {
-        url: "https://www.photorecipe.com/og-image.jpg",
+        url: "https://www.photorecipe.one/title-photo.png",
         width: 1200,
         height: 630,
-        alt: "PhotoRecipe - Discover Recipes from Your Food Photos",
+        alt: "PhotoRecipe - Recognize Dishes & Ingredients, Get Recipes Instantly",
       },
     ],
   },
