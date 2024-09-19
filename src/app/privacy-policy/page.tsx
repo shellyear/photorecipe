@@ -11,30 +11,30 @@ const PrivacyPolicy = () => {
         </a>
         <h1 className="text-3xl font-medium pb-6">Privacy Policy</h1>
         <div className="leading-relaxed">
-          Your privacy is important to us. It is PhotoRecipe's policy to respect
+          Your privacy is important to us. It is PhotoRecipe&apos;s policy to respect
           your privacy regarding any information we may collect from you across
           our website, and other sites we own and operate.
           <br />
           <br />
           We only ask for personal information when we truly need it to provide
           a service to you. We collect it by fair and lawful means, with your
-          knowledge and consent. We also let you know why we're collecting it
+          knowledge and consent. We also let you know why we&apos;re collecting it
           and how it will be used.
           <br />
           <br />
-          You can sign up with your Google account so your PhotoRecipe's account
+          You can sign up with your Google account so your PhotoRecipe&apos;s account
           username will be prefilled with your name and your public profile
           picture.
           <br />
           <br />
           We only retain collected information for as long as necessary to
-          provide you with your requested service. What data we store, we'll
+          provide you with your requested service. What data we store, we&apos;ll
           protect within commercially acceptable means to prevent loss and
           theft, as well as unauthorised access, disclosure, copying, use or
           modification.
           <br />
           <br />
-          We don't share any personally identifying information publicly or with
+          We don&apos;t share any personally identifying information publicly or with
           third-parties, except when required to by law.
           <br />
           <br />

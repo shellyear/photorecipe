@@ -1,8 +1,7 @@
-"use client"
+"use client";
 import ArrowDown from "@/components/icons/ArrowDown";
 import ArrowUp from "@/components/icons/ArrowUp";
 import { useState } from "react";
-
 
 export default function TermsOfService() {
   const [expandedSection, setExpandedSection] = useState<number | null>(null);
@@ -55,7 +54,7 @@ export default function TermsOfService() {
     {
       title: "9. Disclaimers and Limitation of Liability",
       content:
-        'The Service is provided "as is" without any warranties of any kind. To the maximum extent permitted by law, PhotoRecipe.me will not be liable for any damages arising out of your use or inability to use the Service.',
+        "The Service is provided &apos;as is&apos; without any warranties of any kind. To the maximum extent permitted by law, PhotoRecipe.me will not be liable for any damages arising out of your use or inability to use the Service.",
     },
     {
       title: "10. Indemnification",
@@ -85,11 +84,13 @@ export default function TermsOfService() {
         <h1 className="text-3xl font-bold text-center mb-8">
           Terms of Service
         </h1>
-        <p className="text-gray-600 mb-8 text-center">Last updated: 10.9.2024</p>
+        <p className="text-gray-600 mb-8 text-center">
+          Last updated: 10.9.2024
+        </p>
         <p className="mb-8">
-          Welcome to PhotoRecipe.me ("Website," "Service," "we," "our," or
-          "us"). By accessing or using our Service, you agree to these Terms of
-          Service ("Terms"). Please read them carefully. If you do not agree
+          Welcome to PhotoRecipe.me (&quot;Website,&quot; &quot;Service,&quot; &quot;we,&quot; &quot;our,&quot; or
+            &quot;us&quot;). By accessing or using our Service, you agree to these Terms of
+          Service (&quot;Terms&quot;). Please read them carefully. If you do not agree
           with these Terms, do not use PhotoRecipe.me.
         </p>
         <p className="mb-8">
