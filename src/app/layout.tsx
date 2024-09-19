@@ -18,10 +18,41 @@ export const metadata: Metadata = {
   title: "PhotoRecipe - Recognize Dishes & Ingredients, Get Recipes Instantly",
   description:
     "PhotoRecipe is an AI-powered app that recognizes dishes and ingredients from photos. Upload a food photo to get instant recipe suggestions and ingredient-based cooking ideas.",
-  keywords:
-    "recipe app, food recognition, AI recipe finder, ingredient recognition, food photo app, cooking app, recipe suggestions",
+  keywords: [
+    "Image to Recipe",
+    "Recipe from Photo",
+    "Dish Identification from Image",
+    "Photo Recipe Search",
+    "AI Recipe Generator",
+    "Recipe Finder from Ingredients",
+    "Ingredient Recognition Recipe",
+    "Food Image Recognition",
+    "Dish Identification AI",
+    "Recipe Suggestions from Photo",
+    "How to find a recipe from a picture",
+    "Upload a photo to get a recipe",
+    "Recipe from food image",
+    "Find recipes with ingredients in photo",
+    "AI recipe suggestions from food picture",
+    "Recipe search using food photo",
+    "Get recipes from ingredient image",
+    "AI tool for identifying dishes from photos",
+    "Food recognition app for recipes",
+    "Identify dishes and recipes from pictures",
+    "Identify dish from image AI",
+    "AI food identification recipe",
+    "Visual recipe search",
+    "Picture to recipe converter",
+    "Image-based recipe suggestions",
+    "Ingredient-based recipe finder",
+    "AI cooking assistant from photo",
+    "Machine learning recipe generator",
+    "Recipe from food photo app",
+    "Visual cooking guide AI",
+  ],
   openGraph: {
-    title: "PhotoRecipe - Recognize Dishes & Ingredients, Get Recipes Instantly",
+    title:
+      "PhotoRecipe - Recognize Dishes & Ingredients, Get Recipes Instantly",
     description:
       "Take a photo of your dish or ingredients, and let PhotoRecipe find the perfect recipe for you. Get instant recipe recommendations and start cooking with ease.",
     url: "https://www.photorecipe.one",
@@ -37,7 +68,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "PhotoRecipe - Recognize Dishes & Ingredients, Get Recipes Instantly",
+    title:
+      "PhotoRecipe - Recognize Dishes & Ingredients, Get Recipes Instantly",
     description:
       "Upload a food photo and discover recipes instantly. Recognize dishes or ingredients and get cooking ideas.",
     images: [
