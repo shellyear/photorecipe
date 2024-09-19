@@ -14,6 +14,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.photorecipe.one"),
   title: "PhotoRecipe - Recognize Dishes & Ingredients, Get Recipes Instantly",
   description:
     "PhotoRecipe is an AI-powered app that recognizes dishes and ingredients from photos. Upload a food photo to get instant recipe suggestions and ingredient-based cooking ideas.",
