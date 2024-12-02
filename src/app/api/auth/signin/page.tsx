@@ -1,4 +1,5 @@
 "use client";
+import Config from "@/utils/config";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -9,8 +10,6 @@ export default function SignInPage() {
   const handleEmailSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    // Here you would typically call your API to send the magic link
-    console.log("Sending magic link to:", email);
     // Simulate API call
     await new Promise((resolve) => setTimeout(resolve, 1000));
     setIsLoading(false);
@@ -18,8 +17,57 @@ export default function SignInPage() {
   };
 
   const handleGoogleSignIn = () => {
-    // Here you would typically initiate the Google sign-in process
-    console.log("Initiating Google sign-in");
+    const width = 500;
+    const height = 600;
+    const left = (window.innerWidth - width) / 2;
+    const top = (window.outerHeight - height) / 2;
+
+    const popup = window.open(
+      `${Config.BACKEND_BASE_URL}/api/auth/google`,
+      "Sign in - Google accounts",
+      `width=${width},height=${height},top=${top},left=${left}`
+    );
+
+    // Wait for the user to complete the OAuth flow and return a code
+    const messageListener = async (event: MessageEvent) => {
+      if (event.origin !== Config.BACKEND_BASE_URL) return; // Ensure the message is from your backend
+
+      const { code } = event.data;
+      if (code) {
+        try {
+          // Exchange the code for a JWT token
+          const response = await fetch(
+            `${Config.BACKEND_BASE_URL}/api/auth/token`,
+            {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ code }),
+            }
+          );
+
+          if (!response.ok) {
+            throw new Error("Failed to exchange code for token");
+          }
+
+          const { token } = await response.json();
+
+          localStorage.setItem("authToken", token);
+
+          // Redirect the user to the dashboard
+          window.location.href = "/dashboard";
+        } catch (error) {
+          console.error("Error during token exchange:", error);
+          alert("Authentication failed.");
+        } finally {
+          // Cleanup the message listener
+          window.removeEventListener("message", messageListener);
+          popup?.close();
+        }
+      }
+    };
+
+    // Listen for the message from the popup
+    window.addEventListener("message", messageListener);
   };
 
   return (

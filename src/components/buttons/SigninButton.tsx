@@ -11,11 +11,7 @@ export default function SignInButton({ className, text }: ISigninButton) {
   const router = useRouter();
 
   const handleClick = () => {
-    const callbackUrl = "/dashboard";
-
-    router.push(
-      `/api/auth/signin?callbackUrl=${encodeURIComponent(callbackUrl)}`
-    );
+    router.push("/api/auth/signin");
   };
 
   return (
