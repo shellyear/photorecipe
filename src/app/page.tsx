@@ -20,7 +20,7 @@ export default function Home() {
             <Logo />
             <div className="hidden flex-1 items-center gap-12 px-16 md:inline-flex">
               <a href="#pricing">Pricing</a>
-              <Link href="/signup">Signup</Link>
+              <Link href="/auth/signup">Signup</Link>
             </div>
             <SignInButton className="btn btn-sm bg-mandy hover:bg-mandydark text-white" text="Log in" />
           </div>

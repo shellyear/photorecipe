@@ -11,7 +11,7 @@ export default function SignInButton({ className, text }: ISigninButton) {
   const router = useRouter();
 
   const handleClick = () => {
-    router.push("/api/auth/signin");
+    router.push("/auth/signin");
   };
 
   return (
