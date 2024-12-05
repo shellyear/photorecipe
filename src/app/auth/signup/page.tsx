@@ -3,7 +3,6 @@ import Eye from "@/components/icons/Eye";
 import EyeOff from "@/components/icons/EyeOff";
 import Logo from "@/components/Logo";
 import Config from "@/utils/config";
-import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -11,25 +10,32 @@ import { useState } from "react";
 
 export default function SignInPage() {
   const router = useRouter();
-  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleEmailSubmit = async (e: React.FormEvent) => {
+  const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
     try {
-      const res = await axios.post<{ token: string }>(
-        `${Config.BACKEND_BASE_URL}/api/auth/register`,
-        {
-          name,
-          password,
+      if (email && password) {
+        const res = await fetch(
+          `${Config.BACKEND_BASE_URL}/api/auth/register`,
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email, password }),
+            credentials: "same-origin",
+          }
+        );
+
+        if (!res.ok) {
+          throw new Error("Failed to register the user");
         }
-      );
-      localStorage.setItem("authToken", res.data.token);
-      router.push("/dashboard");
+
+        router.push("/dashboard");
+      }
     } catch (error) {
       console.log("Error during registration of the user");
     }
@@ -62,7 +68,7 @@ export default function SignInPage() {
               method: "POST",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({ code }),
-              credentials: "same-origin"
+              credentials: "same-origin",
             }
           );
 
@@ -100,25 +106,8 @@ export default function SignInPage() {
 
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
         <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-          <form className="space-y-6" onSubmit={handleEmailSubmit}>
+          <form className="space-y-6" onSubmit={handleRegister}>
             <div>
-              <label
-                htmlFor="name"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Your name
-              </label>
-              <div className="mt-1">
-                <input
-                  id="name"
-                  name="name"
-                  type="text"
-                  required
-                  className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                />
-              </div>
               <label
                 htmlFor="email"
                 className="block text-sm font-medium text-gray-700 mt-1"
@@ -147,8 +136,9 @@ export default function SignInPage() {
                 <input
                   id="password"
                   name="password"
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   autoComplete="password"
+                  minLength={6}
                   required
                   className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                   value={password}
@@ -181,7 +171,7 @@ export default function SignInPage() {
                 }`}
                 disabled={isLoading}
               >
-                {isLoading ? "Sending..." : "Sign in with email"}
+                {isLoading ? "Sending..." : "Sign up with email"}
               </button>
               <p className="text-center text-sm mt-2">
                 {"Have an account?"}{" "}
@@ -207,7 +197,7 @@ export default function SignInPage() {
             <div className="mt-4">
               <button
                 onClick={handleGoogleSignIn}
-                className="w-full items-center inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
+                className="w-full items-center inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 select-none"
               >
                 <Image
                   src="/google.svg"

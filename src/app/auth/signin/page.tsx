@@ -1,4 +1,6 @@
 "use client";
+import Eye from "@/components/icons/Eye";
+import EyeOff from "@/components/icons/EyeOff";
 import Logo from "@/components/Logo";
 import Config from "@/utils/config";
 import Image from "next/image";
@@ -8,6 +10,7 @@ import { useState } from "react";
 export default function SignInPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
   const handleEmailSubmit = async (e: React.FormEvent) => {
@@ -109,7 +112,7 @@ export default function SignInPage() {
               >
                 Password
               </label>
-              <div className="mt-1">
+              <div className="mt-1 relative">
                 <input
                   id="password"
                   name="password"
@@ -120,6 +123,22 @@ export default function SignInPage() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
+                <span
+                  onClick={() => setShowPassword((prev) => !prev)}
+                  className="absolute inset-y-0 right-0 pr-3 flex items-center"
+                >
+                  {showPassword ? (
+                    <EyeOff
+                      className="h-4 w-4 text-gray-500  hover:bg-gray-200"
+                      aria-hidden="true"
+                    />
+                  ) : (
+                    <Eye
+                      className="h-4 w-4 text-gray-500  hover:bg-gray-200"
+                      aria-hidden="true"
+                    />
+                  )}
+                </span>
               </div>
             </div>
 
@@ -157,7 +176,7 @@ export default function SignInPage() {
             <div className="mt-4">
               <button
                 onClick={handleGoogleSignIn}
-                className="w-full items-center inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
+                className="w-full items-center inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 select-none"
               >
                 <Image
                   src="/google.svg"

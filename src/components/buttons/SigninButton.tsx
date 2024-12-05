@@ -15,7 +15,7 @@ export default function SignInButton({ className, text }: ISigninButton) {
   };
 
   return (
-    <button className={className} onClick={handleClick}>
+    <button className={`${className} select-none`} onClick={handleClick}>
       {text}
     </button>
   );
