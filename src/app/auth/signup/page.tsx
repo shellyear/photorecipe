@@ -5,15 +5,15 @@ import Logo from "@/components/Logo";
 import Config from "@/utils/config";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function SignInPage() {
-  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [showMessage, setShowMessage] = useState(false);
+  const [error, setError] = useState("");
 
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -34,9 +34,10 @@ export default function SignInPage() {
           throw new Error("Failed to register the user");
         }
 
-        router.push("/dashboard");
+        setShowMessage(true);
       }
     } catch (error) {
+      setError("Error during registration of the user");
       console.log("Error during registration of the user");
     }
     setIsLoading(false);
@@ -105,6 +106,16 @@ export default function SignInPage() {
       </div>
 
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+        {error && (
+          <div className="mt-4 p-4 bg-red-100 text-red-700 rounded-md">
+            {error}
+          </div>
+        )}
+        {showMessage && (
+          <div className="mt-4 p-4 bg-green-100 text-green-700 rounded-md">
+            {`Verification email has been sent to ${email}`}
+          </div>
+        )}
         <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
           <form className="space-y-6" onSubmit={handleRegister}>
             <div>
