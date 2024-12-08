@@ -25,19 +25,19 @@ export default function SignInPage() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
-        credentials: "same-origin",
+        credentials:
+          "include" /* ensures the browser stores this cookie for future requests */,
       });
 
       if (!res.ok) {
-        throw new Error("Failed to register the user");
+        const errorData = await res.json();
+        throw new Error(errorData.message || "Failed to sign in the user");
       }
 
       router.push("/dashboard");
     } catch (error) {
-      setError(
-        (error as Error).message || "Error during registration of the user"
-      );
-      console.log("Error during registration of the user");
+      setError((error as Error).message || "Error during signing in");
+      console.log("Error during signing in");
     }
 
     setIsLoading(false);

@@ -26,18 +26,19 @@ export default function SignInPage() {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ email, password }),
-            credentials: "same-origin",
+            credentials: "include",
           }
         );
 
         if (!res.ok) {
-          throw new Error("Failed to register the user");
+          const errorData = await res.json();
+          throw new Error(errorData.message || "Failed to register the user");
         }
 
         setShowMessage(true);
       }
     } catch (error) {
-      setError("Error during registration of the user");
+      setError((error as Error).message);
       console.log("Error during registration of the user");
     }
     setIsLoading(false);
