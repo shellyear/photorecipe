@@ -1,31 +1,17 @@
-import Logo from "@/components/Logo";
-import Container from "@/components/Container";
 import HowItWorks from "@/components/sections/HowItWorks";
 import Introduction from "@/components/sections/Introduction";
-import Link from "next/link";
 import SingleReview from "@/components/sections/SingleReview";
 import Pricing from "@/components/sections/Pricing";
 import Support from "@/components/sections/Support";
 import FAQ from "@/components/sections/FAQ";
 import CallToAction from "@/components/sections/CallToAction";
 import Footer from "@/components/sections/Footer";
-import SignInButton from "@/components/buttons/SigninButton";
+import Header from "@/components/layout/Header";
 
 export default function Home() {
   return (
     <>
-      <header>
-        <Container>
-          <div className="mb-6 flex justify-between gap-4 md:mb-16">
-            <Logo />
-            <div className="hidden flex-1 items-center gap-12 px-16 md:inline-flex">
-              <a href="#pricing">Pricing</a>
-              <Link href="/auth/signup">Signup</Link>
-            </div>
-            <SignInButton className="btn btn-sm bg-mandy hover:bg-mandydark text-white" text="Log in" />
-          </div>
-        </Container>
-      </header>
+      <Header />
       <main>
         <Introduction />
         <HowItWorks />
