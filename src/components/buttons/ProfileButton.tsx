@@ -1,10 +1,22 @@
 "use client";
 import { useUser } from "@/context/UserContext";
+import API from "@/utils/api";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function ProfileButton() {
+  const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const { user } = useUser();
+
+  const handleLogOut = async () => {
+    try {
+      await API.auth.signOut();
+      router.push("/");
+    } catch (error) {
+      console.error("Error logging out:", error);
+    }
+  };
 
   return (
     <div className="relative">
@@ -45,29 +57,26 @@ export default function ProfileButton() {
           aria-labelledby="user-menu"
         >
           <div className="py-1" role="none">
-            <a
-              href="#"
+            <div
               className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
               role="menuitem"
             >
               Your Profile
-            </a>
-            <a
-              href="#"
+            </div>
+            <div
               className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
               role="menuitem"
             >
               Settings
-            </a>
+            </div>
           </div>
-          <div className="py-1" role="none">
-            <a
-              href="#"
+          <div className="py-1" role="none" onClick={() => handleLogOut()}>
+            <div
               className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
               role="menuitem"
             >
               Sign out
-            </a>
+            </div>
           </div>
         </div>
       )}
