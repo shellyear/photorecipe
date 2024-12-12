@@ -1,8 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import Config from "./utils/config";
 import { jwtVerify } from "jose";
-
-const COOKIE_AUTH = "auth_token";
+import { COOKIE_AUTH } from "./types/constants";
 
 export async function middleware(request: NextRequest) {
   const token = request.cookies.get(COOKIE_AUTH)?.value;
