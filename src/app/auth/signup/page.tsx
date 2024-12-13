@@ -105,7 +105,7 @@ export default function SignInPage() {
           </div>
         )}
         <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-          <form className="space-y-6" onSubmit={handleRegister}>
+          <form className="space-y-4" onSubmit={handleRegister}>
             <div>
               <label
                 htmlFor="email"
@@ -160,6 +160,7 @@ export default function SignInPage() {
                   )}
                 </span>
               </div>
+              <div className="text-xs text-gray-400">Account verification needed</div>
             </div>
 
             <div>

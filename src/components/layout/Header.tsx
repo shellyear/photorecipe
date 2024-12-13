@@ -4,9 +4,9 @@ import Container from "../Container";
 import Logo from "../Logo";
 import Link from "next/link";
 import SignInButton from "../buttons/SigninButton";
-import { config } from "@/middleware";
 import { usePathname } from "next/navigation";
 import ProfileButton from "../buttons/ProfileButton";
+import { NON_PROTECTED_ROUTES } from "@/constants/routes";
 
 const UnauthorizedUserLayout = () => (
   <div className="flex justify-between pb-6">
@@ -34,15 +34,15 @@ const AuthorizedUserLayout = () => (
 const Header = () => {
   const pathname = usePathname();
 
-  const isProtectedRoute = config.matcher.includes(pathname);
+  const isNonProtectedRoute = NON_PROTECTED_ROUTES.includes(pathname);
 
   return (
     <header>
       <Container>
-        {isProtectedRoute ? (
-          <AuthorizedUserLayout />
-        ) : (
+        {isNonProtectedRoute ? (
           <UnauthorizedUserLayout />
+        ) : (
+          <AuthorizedUserLayout />
         )}
       </Container>
     </header>

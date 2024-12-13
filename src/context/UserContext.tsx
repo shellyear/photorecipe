@@ -1,5 +1,4 @@
 "use client";
-import { config } from "@/middleware";
 import API from "@/utils/api";
 import { usePathname } from "next/navigation";
 import { User } from "@/types/user";
@@ -10,6 +9,7 @@ import {
   ReactNode,
   useEffect,
 } from "react";
+import { PROTECTED_ROUTES } from "@/constants/routes";
 
 interface UserContextProps {
   user: User | null;
@@ -22,7 +22,7 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
-    if (config.matcher.includes(pathname)) {
+    if (PROTECTED_ROUTES.includes(pathname)) {
       try {
         const fetchData = async () => {
           const data = await API.user.getUserProfile();
