@@ -9,7 +9,7 @@ import Container from "@/components/Container";
 
 interface FeaturedRecipeProps {
   recipeData: RecipeData;
-  image: string;
+  image?: File;
 }
 
 const FeaturedRecipe = ({ recipeData, image }: FeaturedRecipeProps) => {
@@ -37,13 +37,15 @@ const FeaturedRecipe = ({ recipeData, image }: FeaturedRecipeProps) => {
             <div className="px-4 py-5 sm:p-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <Image
-                    src={image}
-                    alt={recipeData.name}
-                    width={600}
-                    height={400}
-                    className="rounded-lg object-cover w-full h-full"
-                  />
+                  {image && (
+                    <Image
+                      src={URL.createObjectURL(image)}
+                      alt={recipeData.name}
+                      width={600}
+                      height={400}
+                      className="rounded-lg object-cover w-full h-full"
+                    />
+                  )}
                 </div>
                 <div>
                   <h4 className="text-lg font-semibold mb-2">Ingredients:</h4>

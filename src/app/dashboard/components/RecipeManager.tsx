@@ -5,7 +5,7 @@ import FeaturedRecipe from "./FeaturedRecipe";
 import FileUpload from "./FileUpload";
 
 const RecipeManager = () => {
-  const [image, setImage] = useState<string | null>(null);
+  const [image, setImage] = useState<File | undefined>();
   const [recipeData, setRecipeData] = useState<RecipeData | null>(null);
   const [loading, setLoading] = useState(false);
 

@@ -6,11 +6,12 @@ import { RecipeData } from "@/types/recipe";
 import ChefHat from "@/components/icons/ChefHat";
 import Upload from "@/components/icons/Upload";
 import IngredientsOptions, { useIngredientOptions } from "./IngredientOptions";
+import { getRecipe } from "@/utils/api/recipe";
 
 interface FileUploadProps {
-  image: string | null;
+  image?: File;
   loading: boolean;
-  setImage: Dispatch<SetStateAction<string | null>>;
+  setImage: Dispatch<SetStateAction<File | undefined>>;
   setRecipeData: Dispatch<SetStateAction<RecipeData | null>>;
   setLoading: Dispatch<SetStateAction<boolean>>;
 }
@@ -26,7 +27,7 @@ const FileUpload = ({
 
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [recipeChoice, setRecipeChoice] = useState(RecipeChoice.DISH);
-
+  const [imgPreviewUrl, setImgPreviewUrl] = useState("");
   const [error, setError] = useState("");
 
   const handleUploadClick = () => {
@@ -39,11 +40,9 @@ const FileUpload = ({
     setRecipeData(null);
     const file = e.target.files?.[0];
     if (file) {
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        setImage(e.target?.result as string);
-      };
-      reader.readAsDataURL(file);
+      setImage(file);
+      const preview = URL.createObjectURL(file);
+      setImgPreviewUrl(preview);
     }
   };
 
@@ -56,24 +55,16 @@ const FileUpload = ({
       setLoading(false);
       return setError("No image was uploaded");
     }
-
     try {
-      const res = await fetch("/api/recipe", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          image,
-          recipeChoice,
-          skillLevel: ingredientOptionsProps.skillLevel,
-          timeConstraint: ingredientOptionsProps.timeConstraint,
-          dietaryRestrictions: ingredientOptionsProps.dietaryRestrictions,
-          missingIngredients: ingredientOptionsProps.missingIngredients,
-        }),
+      const res = await getRecipe({
+        image,
+        recipeChoice,
+        skillLevel: ingredientOptionsProps.skillLevel,
+        timeConstraint: ingredientOptionsProps.timeConstraint,
+        dietaryRestrictions: ingredientOptionsProps.dietaryRestrictions,
+        missingIngredients: ingredientOptionsProps.missingIngredients,
       });
-      const data = await res.json();
-      setRecipeData(JSON.parse(data));
+      setRecipeData(res.data);
     } catch (error: unknown) {
       const { message } = error as Error;
       setError(message);
@@ -94,9 +85,9 @@ const FileUpload = ({
           className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md hover:border-mandy transition-colors"
         >
           <div className="space-y-1 text-center">
-            {image ? (
+            {imgPreviewUrl ? (
               <Image
-                src={image}
+                src={imgPreviewUrl}
                 alt="Uploaded food"
                 width={200}
                 height={200}

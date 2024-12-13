@@ -1,4 +1,5 @@
 import { login, register, signOut, verifyEmail } from "./auth";
+import { getRecipe } from "./recipe";
 import { getUserProfile } from "./user";
 
 const API = {
@@ -10,6 +11,9 @@ const API = {
     register,
     signOut,
     verifyEmail,
+  },
+  recipe: {
+    getRecipe,
   },
 };
 
