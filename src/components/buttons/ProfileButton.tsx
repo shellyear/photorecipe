@@ -3,6 +3,7 @@ import { useUser } from "@/context/UserContext";
 import API from "@/utils/api";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import Modal from "../Modal";
 
 export default function ProfileButton() {
   const router = useRouter();
@@ -15,6 +16,15 @@ export default function ProfileButton() {
       router.push("/");
     } catch (error) {
       console.error("Error logging out:", error);
+    }
+  };
+
+  const handleDeleteAccount = async () => {
+    try {
+      await API.user.deleteUserAccount();
+      router.push("/");
+    } catch (err) {
+      console.error("Error deleting user", err);
     }
   };
 
@@ -60,8 +70,15 @@ export default function ProfileButton() {
             <div
               className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
               role="menuitem"
+              onClick={() =>
+                (
+                  document.getElementById(
+                    "manage-account-modal"
+                  ) as HTMLFormElement
+                )?.showModal()
+              }
             >
-              Your Profile
+              Manage account
             </div>
             <div
               className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
@@ -78,6 +95,27 @@ export default function ProfileButton() {
               Sign out
             </div>
           </div>
+          <Modal
+            id="manage-account-modal"
+            body={
+              <div className="flex flex-col gap-4">
+                <div className="text-base font-bold">Manage Account</div>
+                <div className="p-4 border border-gray-200 rounded-md">
+                  <div className="text-sm font-bold">Delete my account</div>
+                  <p className="text-sm text-gray-500">
+                    Once you delete your account, there is no going back. Please
+                    be certain.
+                  </p>
+                  <button
+                    className="btn btn-error mt-4 text-white"
+                    onClick={() => handleDeleteAccount()}
+                  >
+                    Delete account
+                  </button>
+                </div>
+              </div>
+            }
+          />
         </div>
       )}
     </div>

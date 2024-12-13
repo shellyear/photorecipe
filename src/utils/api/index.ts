@@ -1,10 +1,11 @@
 import { login, register, signOut, verifyEmail } from "./auth";
 import { getRecipe } from "./recipe";
-import { getUserProfile } from "./user";
+import { deleteUserAccount, getUserProfile } from "./user";
 
 const API = {
   user: {
     getUserProfile,
+    deleteUserAccount,
   },
   auth: {
     login,
