@@ -45,12 +45,12 @@ const Pricing = () => {
                 <div className="flex flex-col justify-end mb-[4px] text-lg ">
                   <p className="relative opacity-80">
                     <span className="absolute bg-base-content h-[1.5px] inset-x-0 top-[48%]"></span>
-                    <span className="text-base-content">$19.99</span>
+                    <span className="text-base-content">$7.99</span>
                   </p>
                 </div>
-                <p className="text-5xl tracking-tight font-extrabold">$14.99</p>
+                <p className="text-5xl tracking-tight font-extrabold">$3.99</p>
                 <div className="flex flex-col justify-end mb-[4px]">
-                  <span className="text-xs font-semibold">/year</span>
+                  <span className="text-xs font-semibold">/month</span>
                 </div>
               </div>
               <ul className="space-y-2.5 leading-relaxed text-base flex-1">
@@ -99,10 +99,10 @@ const Pricing = () => {
                 <div className="flex flex-col justify-end mb-[4px] text-lg ">
                   <p className="relative opacity-80">
                     <span className="absolute bg-base-content h-[1.5px] inset-x-0 top-[48%]"></span>
-                    <span className="text-base-content">$29.99</span>
+                    <span className="text-base-content">$59.99</span>
                   </p>
                 </div>
-                <p className="text-5xl tracking-tight font-extrabold">$19.99</p>
+                <p className="text-5xl tracking-tight font-extrabold">$49.99</p>
                 <div className="flex flex-col justify-end mb-[4px]">
                   <span className="text-xs font-semibold">/year</span>
                 </div>

@@ -19,7 +19,7 @@ const UnauthorizedUserLayout = () => (
     </div>
     <SignInButton
       className="btn btn-sm bg-mandy hover:bg-mandydark text-white"
-      text="Log in"
+      text="Get started"
     />
   </div>
 );
