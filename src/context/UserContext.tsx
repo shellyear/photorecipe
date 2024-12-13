@@ -23,11 +23,15 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
 
   useEffect(() => {
     if (config.matcher.includes(pathname)) {
-      const fetchData = async () => {
-        const data = await API.user.getUserProfile();
-        setUser(data);
-      };
-      fetchData();
+      try {
+        const fetchData = async () => {
+          const data = await API.user.getUserProfile();
+          setUser(data);
+        };
+        fetchData();
+      } catch (error) {
+        console.log({ error });
+      }
     }
   }, [pathname]);
 

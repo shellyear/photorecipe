@@ -1,5 +1,5 @@
 "use client";
-import Config from "@/utils/config";
+import API from "@/utils/api";
 import { useRouter, useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
@@ -21,14 +21,9 @@ const VerifyEmail = () => {
 
     const verifyEmail = async () => {
       try {
-        const response = await fetch(
-          `${Config.BACKEND_BASE_URL}/api/auth/verify-email?token=${verificationToken}`
-        );
-
-        if (response.ok) {
-          setStatus("success");
-          setTimeout(() => router.push("/dashboard"), 2500);
-        }
+        await API.auth.verifyEmail(verificationToken);
+        setStatus("success");
+        setTimeout(() => router.push("/dashboard"), 2500);
       } catch (error) {
         setStatus("error");
         setErrorMessage(

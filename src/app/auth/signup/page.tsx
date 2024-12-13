@@ -2,6 +2,7 @@
 import Eye from "@/components/icons/Eye";
 import EyeOff from "@/components/icons/EyeOff";
 import Logo from "@/components/Logo";
+import API from "@/utils/api";
 import Config from "@/utils/config";
 import Image from "next/image";
 import Link from "next/link";
@@ -20,21 +21,7 @@ export default function SignInPage() {
     setIsLoading(true);
     try {
       if (email && password) {
-        const res = await fetch(
-          `${Config.BACKEND_BASE_URL}/api/auth/register`,
-          {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ email, password }),
-            credentials: "include",
-          }
-        );
-
-        if (!res.ok) {
-          const errorData = await res.json();
-          throw new Error(errorData.message || "Failed to register the user");
-        }
-
+        await API.auth.register(email, password);
         setShowMessage(true);
       }
     } catch (error) {

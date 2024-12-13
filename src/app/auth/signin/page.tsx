@@ -2,6 +2,7 @@
 import Eye from "@/components/icons/Eye";
 import EyeOff from "@/components/icons/EyeOff";
 import Logo from "@/components/Logo";
+import API from "@/utils/api";
 import Config from "@/utils/config";
 import Image from "next/image";
 import Link from "next/link";
@@ -21,19 +22,7 @@ export default function SignInPage() {
     setIsLoading(true);
 
     try {
-      const res = await fetch(`${Config.BACKEND_BASE_URL}/api/auth/login`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
-        credentials:
-          "include" /* ensures the browser stores this cookie for future requests */,
-      });
-
-      if (!res.ok) {
-        const errorData = await res.json();
-        throw new Error(errorData.message || "Failed to sign in the user");
-      }
-
+      await API.auth.login(email, password);
       router.push("/dashboard");
     } catch (error) {
       setError((error as Error).message || "Error during signing in");
