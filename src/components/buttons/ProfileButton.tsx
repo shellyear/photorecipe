@@ -38,7 +38,18 @@ export default function ProfileButton() {
       >
         <span className="w-8 h-8 bg-indigo-500 rounded-full flex items-center justify-center">
           <span className="text-white font-medium text-sm">
-            {user && user.email.charAt(0).toUpperCase()}
+            {user &&
+              (user.profilePicture ? (
+                <img
+                  src={user.profilePicture}
+                  alt="profile picture"
+                  className="rounded-full"
+                  width={32}
+                  height={32}
+                />
+              ) : (
+                user.email.charAt(0).toUpperCase()
+              ))}
           </span>
         </span>
         <span className="max-w-[150px] truncate">{user && user.email}</span>
