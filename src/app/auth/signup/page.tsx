@@ -11,7 +11,7 @@ import { useState } from "react";
 
 export default function SignInPage() {
   const router = useRouter();
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState(localStorage.getItem("email") || "");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -23,6 +23,7 @@ export default function SignInPage() {
     setIsLoading(true);
     try {
       if (email && password) {
+        localStorage.setItem("email", email);
         await API.auth.register(email, password);
         setShowMessage(true);
       }
@@ -149,8 +150,8 @@ export default function SignInPage() {
                   )}
                 </span>
               </div>
-              <div className="text-xs text-gray-400">
-                Account verification needed
+              <div className="text-xs text-gray-400 select-none">
+                Email verification needed
               </div>
             </div>
 

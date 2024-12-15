@@ -1,6 +1,8 @@
 import {
+  forgotPassword,
   login,
   register,
+  resetPassword,
   signOut,
   validateCodeAndGetAuthToken,
   verifyEmail,
@@ -18,6 +20,8 @@ const API = {
     register,
     signOut,
     verifyEmail,
+    forgotPassword,
+    resetPassword,
     validateCodeAndGetAuthToken,
   },
   recipe: {

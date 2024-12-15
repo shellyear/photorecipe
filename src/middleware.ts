@@ -2,12 +2,14 @@ import { NextRequest, NextResponse } from "next/server";
 import Config from "./utils/config";
 import { jwtVerify } from "jose";
 import { COOKIE_AUTH } from "./constants/cookie";
+import { NON_PROTECTED_ROUTES } from "./constants/routes";
 
 export async function middleware(request: NextRequest) {
   const token = request.cookies.get(COOKIE_AUTH)?.value;
   const pathname = request.nextUrl.pathname;
-  const isAuthPage =
-    pathname.startsWith("/auth/signin") || pathname.startsWith("/auth/signup");
+  const isAuthPage = NON_PROTECTED_ROUTES.some(
+    (routeName) => pathname.startsWith(routeName) && routeName !== "/"
+  );
 
   if (token) {
     try {

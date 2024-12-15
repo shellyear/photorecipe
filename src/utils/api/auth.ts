@@ -1,6 +1,48 @@
+import { ApiResponse } from "@/types/api";
 import Config from "../config";
 
-export async function verifyEmail(verificationToken: string) {
+export async function forgotPassword(email: string) {
+  try {
+    const response = await fetch(
+      `${Config.BACKEND_BASE_URL}/api/auth/forgot-password`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email,
+        }),
+      }
+    );
+    const data: ApiResponse = await response.json();
+    return data;
+  } catch (error) {
+    throw error;
+  }
+}
+
+export async function resetPassword(token: string, newPassword: string) {
+  try {
+    const response = await fetch(
+      `${Config.BACKEND_BASE_URL}/api/auth/reset-password`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          token,
+          newPassword,
+        }),
+      }
+    );
+    const data: ApiResponse = await response.json();
+    return data;
+  } catch (error) {
+    throw error;
+  }
+}
+
+export async function verifyEmail(
+  verificationToken: string
+): Promise<ApiResponse> {
   try {
     const response = await fetch(
       `${Config.BACKEND_BASE_URL}/api/auth/verify-email?token=${verificationToken}`,
@@ -10,7 +52,7 @@ export async function verifyEmail(verificationToken: string) {
       }
     );
 
-    const data = response.json();
+    const data: ApiResponse = await response.json();
     return data;
   } catch (error) {
     throw error;
@@ -31,7 +73,7 @@ export async function login(email: string, password: string) {
       const errorData = await res.json();
       throw new Error(errorData.message || "Failed to sign in the user");
     }
-    const data = await res.json();
+    const data: ApiResponse = await res.json();
     return data;
   } catch (error) {
     console.error("Error during sign-in:", error);
@@ -47,7 +89,7 @@ export async function register(email: string, password: string) {
       body: JSON.stringify({ email, password }),
       credentials: "include",
     });
-    const data = await res.json();
+    const data: ApiResponse = await res.json();
     return data;
   } catch (error) {
     console.error("Error during sign-up:", error);

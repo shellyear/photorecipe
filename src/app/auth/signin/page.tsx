@@ -11,7 +11,7 @@ import { useState } from "react";
 
 export default function SignInPage() {
   const router = useRouter();
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState(localStorage.getItem("email") || "");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -23,6 +23,7 @@ export default function SignInPage() {
 
     try {
       await API.auth.login(email, password);
+      localStorage.setItem("email", email);
       router.push("/dashboard");
     } catch (error) {
       setError((error as Error).message || "Error during signing in");
@@ -89,7 +90,7 @@ export default function SignInPage() {
           </div>
         )}
         <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-          <form className="space-y-6" onSubmit={handleEmailSubmit}>
+          <form className="space-y-4" onSubmit={handleEmailSubmit}>
             <div>
               <label
                 htmlFor="email"
@@ -142,6 +143,9 @@ export default function SignInPage() {
                     />
                   )}
                 </span>
+              </div>
+              <div className="text-xs text-blue-400 text-right underline select-none mt-1">
+                <Link href="/auth/forgot-password">Forgot Password?</Link>
               </div>
             </div>
 
