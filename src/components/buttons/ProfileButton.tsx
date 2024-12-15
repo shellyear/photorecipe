@@ -1,14 +1,22 @@
 "use client";
+
 import { useUser } from "@/context/UserContext";
 import API from "@/utils/api";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Modal from "../Modal";
 
 export default function ProfileButton() {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const { user } = useUser();
+  const [width, setWidth] = useState(0);
+
+  useEffect(() => {
+    setWidth(window.innerWidth);
+  }, []);
+
+  const isMobile = typeof window !== "undefined" ? width < 640 : false;
 
   const handleLogOut = async () => {
     try {
@@ -32,42 +40,48 @@ export default function ProfileButton() {
     <div className="relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center space-x-2 bg-white border border-gray-300 rounded-full px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+        className={`flex items-center space-x-2 bg-white border border-gray-300 rounded-full px-2 sm:px-4 py-1 sm:py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 ${
+          isMobile ? "w-10 h-10 justify-center" : ""
+        }`}
         aria-expanded={isOpen}
         aria-haspopup="true"
       >
-        <span className="w-8 h-8 bg-indigo-500 rounded-full flex items-center justify-center">
-          <span className="text-white font-medium text-sm">
+        <span className="w-6 h-6 sm:w-8 sm:h-8 bg-indigo-500 rounded-full flex items-center justify-center flex-shrink-0">
+          <span className="text-white font-medium text-xs sm:text-sm">
             {user &&
               (user.profilePicture ? (
                 <img
                   src={user.profilePicture}
                   alt="profile picture"
-                  className="rounded-full"
-                  width={32}
-                  height={32}
+                  className="rounded-full w-full h-full object-cover"
                 />
               ) : (
                 user.email.charAt(0).toUpperCase()
               ))}
           </span>
         </span>
-        <span className="max-w-[150px] truncate">{user && user.email}</span>
-        <svg
-          className={`h-5 w-5 text-gray-400 transition-transform ${
-            isOpen ? "rotate-180" : ""
-          }`}
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 20 20"
-          fill="currentColor"
-          aria-hidden="true"
-        >
-          <path
-            fillRule="evenodd"
-            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-            clipRule="evenodd"
-          />
-        </svg>
+        {!isMobile && (
+          <>
+            <span className="max-w-[100px] sm:max-w-[150px] truncate hidden sm:inline">
+              {user && user.email}
+            </span>
+            <svg
+              className={`h-4 w-4 sm:h-5 sm:w-5 text-gray-400 transition-transform ${
+                isOpen ? "rotate-180" : ""
+              }`}
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                fillRule="evenodd"
+                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                clipRule="evenodd"
+              />
+            </svg>
+          </>
+        )}
       </button>
 
       {isOpen && (

@@ -18,7 +18,7 @@ const ArrowUp = ({ w, h, fill, className }: Icon) => {
     >
       <path
         d="M903.232 768l56.768-50.432L512 256l-448 461.568 56.768 50.432L512 364.928z"
-        fill="#000000"
+        fill={fill ? fill : "#000000"}
       />
     </svg>
   );
