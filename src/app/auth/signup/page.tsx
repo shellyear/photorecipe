@@ -6,9 +6,11 @@ import API from "@/utils/api";
 import Config from "@/utils/config";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function SignInPage() {
+  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -51,22 +53,9 @@ export default function SignInPage() {
       if (code) {
         try {
           // Exchange the code for a JWT token
-          const response = await fetch(
-            `${Config.BACKEND_BASE_URL}/api/auth/token`,
-            {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({ code }),
-              credentials: "same-origin",
-            }
-          );
-
-          if (!response.ok) {
-            throw new Error("Failed to exchange code for token");
-          }
-
+          await API.auth.validateCodeAndGetAuthToken(code);
           // Redirect the user to the dashboard
-          window.location.href = "/dashboard";
+          router.push("/dashboard");
         } catch (error) {
           console.error("Error during token exchange:", error);
           alert("Authentication failed.");
@@ -160,7 +149,9 @@ export default function SignInPage() {
                   )}
                 </span>
               </div>
-              <div className="text-xs text-gray-400">Account verification needed</div>
+              <div className="text-xs text-gray-400">
+                Account verification needed
+              </div>
             </div>
 
             <div>

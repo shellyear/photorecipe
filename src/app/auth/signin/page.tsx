@@ -52,22 +52,10 @@ export default function SignInPage() {
       if (code) {
         try {
           // Exchange the code for a JWT token
-          const response = await fetch(
-            `${Config.BACKEND_BASE_URL}/api/auth/token`,
-            {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({ code }),
-              credentials: "same-origin",
-            }
-          );
-
-          if (!response.ok) {
-            throw new Error("Failed to exchange code for token");
-          }
+          await API.auth.validateCodeAndGetAuthToken(code);
 
           // Redirect the user to the dashboard
-          window.location.href = "/dashboard";
+          router.push("/dashboard");
         } catch (error) {
           console.error("Error during token exchange:", error);
           alert("Authentication failed.");

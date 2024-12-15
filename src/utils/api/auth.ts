@@ -55,6 +55,20 @@ export async function register(email: string, password: string) {
   }
 }
 
+export async function validateCodeAndGetAuthToken(code: string): Promise<void> {
+  try {
+    await fetch(`${Config.BACKEND_BASE_URL}/api/auth/token`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ code }),
+      credentials: "include",
+    });
+  } catch (error) {
+    console.error("Error during code validation:", error);
+    throw error;
+  }
+}
+
 export async function signOut() {
   try {
     const res = await fetch(`${Config.BACKEND_BASE_URL}/api/auth/logout`, {
