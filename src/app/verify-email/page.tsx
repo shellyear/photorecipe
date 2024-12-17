@@ -1,7 +1,7 @@
 "use client";
 import API from "@/utils/api";
 import { useRouter, useSearchParams } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 
 const VerifyEmail = () => {
   const [status, setStatus] = useState<"loading" | "success" | "error">(
@@ -59,4 +59,10 @@ const VerifyEmail = () => {
   );
 };
 
-export default VerifyEmail;
+export default function VerifyEmailPage() {
+  return (
+    <Suspense fallback={<div>loading</div>}>
+      <VerifyEmail />
+    </Suspense>
+  );
+}

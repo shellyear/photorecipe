@@ -7,15 +7,22 @@ import Config from "@/utils/config";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function SignInPage() {
   const router = useRouter();
-  const [email, setEmail] = useState(localStorage.getItem("email") || "");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
+
+  useEffect(() => {
+    const savedEmail = localStorage.getItem("email");
+    if (savedEmail) {
+      setEmail(savedEmail);
+    }
+  }, []);
 
   const handleEmailSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
