@@ -13,7 +13,7 @@ const UnauthorizedUserLayout = () => (
     <div className="flex gap-12">
       <Logo />
       <div className="hidden items-center gap-12 md:inline-flex">
-        <a href="#pricing">Pricing</a>
+        <a href="/#pricing">Pricing</a>
         <Link href="/auth/signup">Signup</Link>
       </div>
     </div>
