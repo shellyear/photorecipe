@@ -34,7 +34,7 @@ const VerifyEmail = () => {
     };
 
     verifyEmail();
-  }, [verificationToken]);
+  }, [router, verificationToken]);
 
   return (
     <div className="text-center">
