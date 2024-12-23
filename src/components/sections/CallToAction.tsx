@@ -15,9 +15,9 @@ const CallToAction = () => {
       {/* Optional overlay for better text visibility */}
       <div className="relative z-10 flex h-full items-center justify-center px-4 text-center text-white">
         <div>
-          <h1 className="mb-4 text-2xl font-bold sm:text-5xl md:text-6xl">
+          <h2 className="mb-4 text-2xl font-bold sm:text-5xl md:text-6xl">
             Snap, Cook, Enjoy! <br></br> Start Your Culinary Journey Today!
-          </h1>
+          </h2>
           <button className="btn bg-mandy btn-wide text-white font-bold mt-4 hover:bg-mandydark">
             <ChefHat w={22} h={22} />
             Get PhotoRecipe
