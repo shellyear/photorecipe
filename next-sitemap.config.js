@@ -5,6 +5,12 @@ module.exports = {
   changefreq: "daily",
   priority: 0.7,
   sitemapSize: 5000,
-  exclude: ["/dashboard", "/auth/signin", "/auth/signup"],
+  exclude: [
+    "/dashboard",
+    "/auth/signin",
+    "/auth/signup",
+    "/auth/forgot-password",
+    "/auth/reset-password",
+  ],
   // ...other options
 };
