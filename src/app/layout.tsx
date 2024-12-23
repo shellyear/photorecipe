@@ -18,7 +18,7 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.photorecipe.one"),
-  title: "PhotoRecipe: Identify Food & Get Recipe",
+  title: "PhotoRecipe: Scan Food & Get Recipe",
   description:
     "Upload a photo of a dish or ingredients to get instant cooking ideas. Perfect for home cooks and food enthusiasts!",
   keywords: [
