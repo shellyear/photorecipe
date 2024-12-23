@@ -18,12 +18,14 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.photorecipe.one"),
-  title: "PhotoRecipe - Recognize Dishes & Ingredients, Get Recipes Instantly",
+  title: "PhotoRecipe: Identify Food & Get Recipe",
   description:
-    "PhotoRecipe is an AI-powered app that recognizes dishes and ingredients from photos. Upload a food photo to get instant recipe suggestions and ingredient-based cooking ideas.",
+    "Upload a photo of a dish or ingredients to get instant cooking ideas. Perfect for home cooks and food enthusiasts!",
   keywords: [
     "Image to Recipe",
     "Recipe from Photo",
+    "Recipe finder",
+    "Photo chef",
     "Dish Identification from Image",
     "Photo Recipe Search",
     "AI Recipe Generator",
@@ -54,8 +56,7 @@ export const metadata: Metadata = {
     "Visual cooking guide AI",
   ],
   openGraph: {
-    title:
-      "PhotoRecipe - Recognize Dishes & Ingredients, Get Recipes Instantly",
+    title: "PhotoRecipe: Scan Food & Get Recipe",
     description:
       "Take a photo of your dish or ingredients, and let PhotoRecipe find the perfect recipe for you. Get instant recipe recommendations and start cooking with ease.",
     url: "https://www.photorecipe.one",
@@ -65,7 +66,7 @@ export const metadata: Metadata = {
         url: "https://www.photorecipe.one/title-photo.png",
         width: 1200,
         height: 630,
-        alt: "PhotoRecipe - Recognize Dishes & Ingredients, Get Recipes Instantly",
+        alt: "PhotoRecipe: Identify Food & Get Recipe",
       },
     ],
   },
