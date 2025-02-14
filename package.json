@@ -10,6 +10,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@next/third-parties": "^15.1.7",
     "axios": "^1.7.8",
     "daisyui": "^4.12.10",
     "jose": "^5.9.6",
